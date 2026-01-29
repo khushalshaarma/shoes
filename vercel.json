@@ -3,11 +3,11 @@
   "outputDirectory": "dist",
   "headers": [
     {
-      "source": "/public/:path*",
+      "source": "/:path*",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         }
       ]
     },
@@ -23,6 +23,26 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/:path*.mp4",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/vite.svg",
+      "destination": "/favicon.ico",
+      "permanent": true
     }
   ]
 }

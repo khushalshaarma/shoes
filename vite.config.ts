@@ -6,7 +6,11 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  assetsInclude: ['**/*.glb'],
+  assetsInclude: ['**/*.glb', '**/*.mp4'],
+  build: {
+    copyPublicDir: true,
+    assetsDir: 'assets',
+  },
   server: {
     allowedHosts: ['although-predicted-technical-entitled.trycloudflare.com'],
     proxy: {
