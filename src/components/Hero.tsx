@@ -6,6 +6,9 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
 
+// Preload GLB file for faster loading on Vercel
+useGLTF.preload('/shoe2.glb');
+
 function ShoeModel() {
   const { scene } = useGLTF('/shoe2.glb');
 
@@ -42,7 +45,15 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
         {/* 3D Canvas */}
         <div className="w-full h-[70vh]"> {/* 👈 limit 3D model height */}
-          <Canvas camera={{ position: [0, 1, 12], fov: 40 }}>
+          <Canvas
+            camera={{ position: [0, 1, 12], fov: 40 }}
+            gl={{
+              antialias: true,
+              powerPreference: 'high-performance',
+              preserveDrawingBuffer: false,
+            }}
+            dpr={[1, 2]}
+          >
             <ambientLight intensity={0.8} />
             <directionalLight position={[8, 9, 8]} intensity={1.2} />
             <spotLight

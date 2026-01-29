@@ -9,6 +9,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Preload GLB files for faster loading on Vercel
+useGLTF.preload('/shoe.glb');
+useGLTF.preload('/shoebox.glb');
+
 // =============================
 // Shoe floating animation
 // =============================
@@ -216,9 +220,15 @@ export default function ShoeScroll() {
       {/* Canvas */}
       <Canvas
         shadows
-        gl={{ alpha: true }}
+        gl={{
+          alpha: true,
+          antialias: true,
+          powerPreference: 'high-performance',
+          preserveDrawingBuffer: false,
+        }}
         className="fixed top-0 left-0 w-full h-full -z-10"
         camera={{ position: [0, 0, 50], fov: 40 }}
+        dpr={[1, 2]}
       >
         <ambientLight intensity={0.5} />
         <directionalLight
