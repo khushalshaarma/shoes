@@ -6,6 +6,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  assetsInclude: ['**/*.glb'],
   server: {
     allowedHosts: ['although-predicted-technical-entitled.trycloudflare.com'],
     proxy: {

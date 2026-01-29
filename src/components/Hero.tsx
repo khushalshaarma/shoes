@@ -7,7 +7,7 @@ import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
 
 function ShoeModel() {
-  const { scene } = useGLTF(import.meta.env.BASE_URL + 'shoe2.glb');
+  const { scene } = useGLTF('/shoe2.glb');
 
   const mesh = useRef<THREE.Group>(null);
 

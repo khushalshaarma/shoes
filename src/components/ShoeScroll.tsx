@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Shoe floating animation
 // =============================
 function ShoeModel() {
-  const { scene } = useGLTF("/shoe.glb");
+  const { scene } = useGLTF('/shoe.glb');
   const shoeRef = useRef<THREE.Group>(null);
   const scrollProgress = useRef(0);
 
@@ -61,7 +61,7 @@ function ShoeModel() {
 // Shoebox with opening lid
 // =============================
 function BgShoebox({ scrollProgress }: { scrollProgress: number }) {
-  const { scene } = useGLTF("/shoebox.glb");
+  const { scene } = useGLTF('/shoebox.glb');
   const lidPivotRef = useRef<THREE.Group | null>(null);
   const [boxGroup, setBoxGroup] = useState<THREE.Group | null>(null);
 
